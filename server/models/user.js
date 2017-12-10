@@ -70,7 +70,7 @@ const UserSchema = new mongoose.Schema({
 });
 
 // unique plugin
-UserSchema.plugin(uniqueCheck, {message: '{PATH} is not available' });
+UserSchema.plugin(uniqueCheck, {message: 'Duplicate email found' });
 
 // virtual full birthday format
 UserSchema.virtual('bday_short').get(function(){

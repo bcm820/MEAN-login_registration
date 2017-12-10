@@ -1,5 +1,5 @@
 
-const users = require('../controllers/usersController');
+const search = require('../controllers/searchController');
 
 module.exports = (router) => {
 
@@ -14,7 +14,8 @@ module.exports = (router) => {
     });
 
     // /api/users/search
-    router.get('/first/:term', users.first);
-    router.get('/last/:term', users.last);
+    router.get('/first/:term', search.first);
+    router.get('/last/:term', search.last);
+    router.get('/email/:term', search.email);
 
 };

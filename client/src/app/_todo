@@ -1,7 +1,6 @@
-- Check for unique emails
-- Build search bar
-- Add some async capabilities
-- Login stored in service 'session'
+
+
+- Check req session... how to store user?
 - Individual show page
 - Update individual
 - Maybe a 1-to-m rel

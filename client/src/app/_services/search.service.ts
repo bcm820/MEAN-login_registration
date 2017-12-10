@@ -10,16 +10,15 @@ export class SearchService {
   
   constructor(private _http: HttpClient) { }
 
-  searchTerm(term, type){
-    return term
-      .debounceTime(200)
-      .distinctUntilChanged()
-      .switchMap(term => this.search(term, type));
+  timeSearch(params){
+    return params
+      .debounceTime(1000)
+      .switchMap(params => this.search(params.field, params.term));
   }
 
-  search(term, type) {
-    if(term === ''){ return of([]) }
-    return this._http.get(`/api/users/search/${type}/${term}`)
+  search(field, term) {
+    if(field === '' || term === ''){ return of([]) }
+    return this._http.get(`/api/users/search/${field}/${term}`)
   }
 
 }

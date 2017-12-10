@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from './user';
-import { UsersService } from '../_services/users.service';
+import { Subject } from 'Rxjs';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 
@@ -12,33 +12,41 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent {
 
+  email$ = new Subject();
   user;
-  emails;
+  unique;
+  flashes;
 
   constructor(
-    private _us: UsersService,
     private _as: AuthService,
     private _router: Router
-  ){}
+  ){
+    this._as.checkEmail(this.email$)
+      .subscribe(result => {
+      if(result === 1){ this.unique = false; }
+      else { this.unique = true; }
+    });
+  }
   
   ngOnInit(){
     this.user = new User();
-    this.emails = this._as.listEmails();
-  }
-
-  validateEmail(){
-    for(let address of this.emails){
-      if(this.user.email === address){
-        return true;
-      }
-      else { return false; }
-    }
+    this.unique = true;
+    this.flashes = false;
   }
   
   onSubmit(form){
-    this._as.join(this.user);
-    this.user = new User();
-    this._router.navigate(['']); // change to auto login
+    this._as.join(this.user)
+      .subscribe(
+      res => {
+        if(Array.isArray(res)){
+          this.flashes = res;
+        } else {
+          console.log(`${this.user.first} joined`);
+          this.flashes = false;
+          this._router.navigate(['']);
+          this.user = new User();
+        }
+      });
   }
 
 }

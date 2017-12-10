@@ -10,12 +10,25 @@ import { Subject } from 'Rxjs';
 })
 export class SearchComponent {
 
-  users;
-  name$ = new Subject();
+  users = [];
+  status = false;
+  searched = false;
+  search = {field:'', term:''}
+  params$ = new Subject();
   
   constructor(private _ss: SearchService) {
-    this._ss.searchTerm(this.name$, 'names')
-      .subscribe(list => this.users = list);
+    this._ss.timeSearch(this.params$)
+    .subscribe(list => this.users = list);
+  }
+
+  updateParams(){
+    this.status = true;
+    this.searched = false;
+    this.params$.next(this.search);
+    setTimeout(() => {
+      this.status = false;
+      this.searched = true;
+    }, 1300)
   }
 
 }

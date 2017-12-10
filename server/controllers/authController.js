@@ -9,7 +9,7 @@ function listErrs(err){
     for(let x in err.errors){
         list.push(err.errors[x].message);
     }
-    return list;
+    return list.reverse();
 }
 
 module.exports = {
@@ -39,15 +39,9 @@ module.exports = {
         }
     },
 
-    listEmails(req, res){
-        User.find({}, {email:1, _id:0})
-        .then(users => {
-            let emails = [];
-            for(user of users){
-                emails.push(user.email);
-            }
-            res.json(emails)
-        })
+    check(req, res){
+        User.count({email:req.email})
+        .then(users => res.json(users))
         .catch(err => res.json(err));
     }
 

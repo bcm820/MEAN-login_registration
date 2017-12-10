@@ -1,16 +1,16 @@
 
 <h2 class=text-center>Register</h2>
-<p>&nbsp;</p>
-
-<span *ngIf="validateEmail()"><p>Duplicate!</p></span>
+<hr>
 
 <form (submit)="onSubmit(form)" #form="ngForm" class=form-horizontal>
 
   <div class=form-group>
     <div class="col-sm-4 text-right"><label class="control-label">Email:</label></div>
     <div class=col-sm-4>
-      <input class=form-control type=text name=email required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-      [(ngModel)]='user.email' #email='ngModel'/>
+      <input class=form-control type=text name=email required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+        [(ngModel)]='user.email' #email='ngModel'
+        (keyup)="email$.next($event.target.value)"/>
     </div>
     <div class="col-sm-4 form-control-static">
       <span *ngIf="email.errors && email.dirty">
@@ -18,7 +18,11 @@
         <span class=error [hidden]="!email.errors.required">Email required</span>
         <span class=error [hidden]="!email.errors.pattern">Enter valid format</span>
       </span>
-      <span *ngIf="email.valid" class="glyphicon glyphicon-ok valid"></span>
+      <span *ngIf=!unique>
+        <span class="error glyphicon glyphicon-remove"></span>
+        <span class=error>Duplicate email found</span>
+      </span>
+      <span *ngIf="email.valid && unique" class="glyphicon glyphicon-ok valid"></span>
     </div>
   </div>
 
@@ -105,9 +109,20 @@
   <div class=form-group>
     <div class=col-sm-4></div>
     <div class=col-sm-4>
-      <input *ngIf="!form.valid" type=submit value=Register class="btn btn-block btn-danger disabled" [disabled]="!form.valid">
-      <input *ngIf="form.valid" type=submit value=Register class="btn btn-block btn-primary">
+      <input *ngIf="!form.valid || !unique" type=submit value=Register class="btn btn-block btn-danger disabled" [disabled]="!form.valid">
+      <input *ngIf="form.valid && unique" type=submit value=Register class="btn btn-block btn-primary">
     </div>
+  </div>
+
+  <div *ngIf="flashes" class="form-group text-center">
+    <div class=col-sm-3></div>
+    <div class=col-sm-6>
+      <div class="alert alert-danger">
+        Hi D2 :)<br>
+        <span *ngFor="let flash of flashes">{{flash}}<br></span>
+      </div>
+    </div>
+    <div class=col-sm-3></div>
   </div>
 
 </form>

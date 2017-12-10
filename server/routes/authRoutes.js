@@ -8,9 +8,14 @@ module.exports = (router) => {
         next();
     })
 
+    router.param('email', (req, res, next, email) => {
+       req.email = email;
+       next();
+    });
+
     // /api/auth
     router.post('/join', auth.join);
     router.post('/login', auth.login);
-    router.get('/emails', auth.listEmails)
+    router.get('/check/:email', auth.check)
 
 };

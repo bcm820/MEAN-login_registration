@@ -11,6 +11,6 @@ module.exports = (router) => {
     // /api/auth
     router.post('/join', auth.join);
     router.post('/login', auth.login);
-    router.get('/emails', auth.checkEmails)
+    router.get('/emails', auth.listEmails)
 
 };

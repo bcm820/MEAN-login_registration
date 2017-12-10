@@ -1,5 +1,4 @@
 
-// include mongoose and model
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
@@ -13,13 +12,13 @@ function listErrs(err){
 
 module.exports = {
     
-    findAll(req, res){
+    list(req, res){
         User.find({}, {_pw:0, __v:0})
         .then(users => res.json(users))
         .catch(err => res.json(listErrs(err)));
     },
 
-    findById(req, res){
+    show(req, res){
         User.findById(req.id, {_pw:0, __v:0})
         .then(user => res.json(user))
         .catch(err => res.json(listErrs(err)));

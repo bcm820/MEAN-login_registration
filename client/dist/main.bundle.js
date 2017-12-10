@@ -24,8 +24,10 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__registration_registration_component__ = __webpack_require__("../../../../../src/app/registration/registration.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__userlist_userlist_component__ = __webpack_require__("../../../../../src/app/userlist/userlist.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__registration_registration_component__ = __webpack_require__("../../../../../src/app/registration/registration.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__userlist_userlist_component__ = __webpack_require__("../../../../../src/app/userlist/userlist.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_search_component__ = __webpack_require__("../../../../../src/app/search/search.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -36,12 +38,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var routes = [
-    { path: '', pathMatch: 'full', component: __WEBPACK_IMPORTED_MODULE_2__registration_registration_component__["a" /* RegistrationComponent */] },
-    { path: 'users', component: __WEBPACK_IMPORTED_MODULE_3__userlist_userlist_component__["a" /* UserlistComponent */] },
+    { path: '', pathMatch: 'full', component: __WEBPACK_IMPORTED_MODULE_2__login_login_component__["a" /* LoginComponent */] },
+    { path: 'register', pathMatch: 'full', component: __WEBPACK_IMPORTED_MODULE_3__registration_registration_component__["a" /* RegistrationComponent */] },
+    { path: 'users/list', component: __WEBPACK_IMPORTED_MODULE_4__userlist_userlist_component__["a" /* UserlistComponent */] },
+    { path: 'users/search', component: __WEBPACK_IMPORTED_MODULE_5__search_search_component__["a" /* SearchComponent */] },
     { path: '**', redirectTo: '' }
-    //   {path:'products', component:ListComponent},
-    //   {path:'products/new', component:CreateComponent},
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -80,7 +84,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=row>\n  <div class=\"col-sm-12 text-center\">\n    <nav>\n      <button class=\"btn btn-default\" [routerLink]=\"['']\">Register</button>\n      <button class=\"btn btn-default\">Login</button>\n      <button class=\"btn btn-default\" [routerLink]=\"['users']\">Search Users</button>\n    </nav>\n    <hr>\n  </div>\n</div>\n\n<div class=row>\n  <div class=col-sm-1></div>\n  <div class=col-sm-10>\n      <router-outlet></router-outlet>\n  </div>\n  <div class=col-sm-1></div>\n</div>"
+module.exports = "\n<div class=row>\n  <div class=\"col-sm-12 text-center\">\n    <nav>\n      <button class=\"btn btn-default\" [routerLink]=\"['']\">Login</button>\n      <button class=\"btn btn-default\" [routerLink]=\"['register']\">Register</button>\n      <button class=\"btn btn-default\" [routerLink]=\"['users','list']\">List</button>\n      <button class=\"btn btn-default\" [routerLink]=\"['users','search']\">Search</button>\n    </nav>\n    <hr>\n  </div>\n</div>\n\n<div class=row>\n  <div class=col-sm-1></div>\n  <div class=col-sm-10>\n      <router-outlet></router-outlet>\n  </div>\n  <div class=col-sm-1></div>\n</div>"
 
 /***/ }),
 
@@ -130,12 +134,16 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__users_service__ = __webpack_require__("../../../../../src/app/users.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__registration_dateValidator__ = __webpack_require__("../../../../../src/app/registration/dateValidator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__search_search_component__ = __webpack_require__("../../../../../src/app/search/search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -156,6 +164,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_6__registration_registration_component__["a" /* RegistrationComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__userlist_userlist_component__["a" /* UserlistComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__search_search_component__["a" /* SearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__login_login_component__["a" /* LoginComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__registration_dateValidator__["a" /* DateValidator */]
             ],
             imports: [
@@ -196,7 +206,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AuthService = (function () {
     function AuthService(_http) {
         this._http = _http;
-        this.headers = new Headers({ 'Content-Type': 'application/json' });
     }
     AuthService.prototype.join = function (user) {
         this._http.post('/api/auth/join', user).subscribe(function (res) { return console.log(res); }, function (err) { return console.log(err); });
@@ -212,6 +221,67 @@ var AuthService = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], AuthService);
     return AuthService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  login works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoginComponent = (function () {
+    function LoginComponent() {
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-login',
+            template: __webpack_require__("../../../../../src/app/login/login.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LoginComponent);
+    return LoginComponent;
 }());
 
 
@@ -293,7 +363,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/registration/registration.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<h2 class=text-center>Register</h2>\n<p>&nbsp;</p>\n\n<!-- Loop through emails -->\n<span *ngFor=\"let addr of emails\">\n<form (submit)=\"onSubmit(form)\" #form=\"ngForm\" class=form-horizontal>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Email:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=text name=email required pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\"\n      [(ngModel)]='user.email' #email='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"email.errors && email.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!email.errors\"></span>\n        <span class=error [hidden]=\"!email.errors.required\">Email required</span>\n        <span class=error [hidden]=\"!email.errors.pattern\">Enter valid format</span>\n      </span>\n      <span class=\"error glyphicon glyphicon-remove\" *ngIf=\"addr === email.value\"></span>\n      <span class=error [hidden]=\"addr !== email.value\">Duplicate email found</span>\n      <span *ngIf=\"email.valid && addr !== email.value\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">First Name:</label></div>\n    <div class=col-sm-4>\n      <input [ngClass]=\"{'has-error':first.errors&&first.dirty}\" [ngClass]=\"{'has-success':first.valid}\" class=form-control type=text name=first required minlength=3\n      [(ngModel)]='user.first' #first='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"first.errors && first.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!first.errors\"></span>\n        <span class=error [hidden]=\"!first.errors.required\">First name required</span>\n        <span class=error [hidden]=\"!first.errors.minlength\">3 characters minimum</span>\n      </span>\n      <span *ngIf=\"first.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Last Name:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=text name=last required minlength=3\n      [(ngModel)]='user.last' #last='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"last.errors && last.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!last.errors\"></span>\n        <span class=error [hidden]=\"!last.errors.required\">Last name required</span>\n        <span class=error [hidden]=\"!last.errors.minlength\">3 characters minimum</span>\n      </span>\n      <span *ngIf=\"last.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Password:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=password name=_pw required minlength=8\n      [(ngModel)]='user._pw' #_pw='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"_pw.errors && _pw.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!_pw.errors\"></span>\n        <span class=error [hidden]=\"!_pw.errors.required\">Password required</span>\n        <span class=error [hidden]=\"!_pw.errors.minlength\">8 characters minimum</span>\n      </span>\n      <span *ngIf=\"_pw.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Confirmation:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=password name=_pwconf required minlength=8 pattern={{user._pw}}\n      [(ngModel)]='user._pwconf' #_pwconf='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"_pwconf.errors && _pwconf.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!_pwconf.errors\"></span>\n        <span class=error [hidden]=\"!_pwconf.errors.required\">Confirmation required</span>\n        <span class=error [hidden]=\"!_pwconf.errors.pattern\">Must match password</span>\n      </span>\n      <span *ngIf=\"_pwconf.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Birthday:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=date name=bday required pastDate\n      [(ngModel)]='user.bday' #bday='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"bday.errors && bday.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!bday.errors\"></span>\n        <span class=error [hidden]=\"!bday.errors.required\">Birthday required</span>\n        <span class=error [hidden]=\"!bday.errors.pastDate\">Must be a date in the past</span>\n      </span>\n      <span *ngIf=\"bday.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=col-sm-4></div>\n    <div class=col-sm-4>\n      <input *ngIf=\"!form.valid || addr === email.value\" type=submit value=Register class=\"btn btn-block btn-danger disabled\" [disabled]=\"!form.valid\">\n      <input *ngIf=\"form.valid && addr !== email.value\" type=submit value=Register class=\"btn btn-block btn-primary\">\n    </div>\n  </div>\n\n</form>\n</span>"
+module.exports = "\n<h2 class=text-center>Register</h2>\n<p>&nbsp;</p>\n\n<span *ngIf=\"validateEmail()\"><p>Duplicate!</p></span>\n\n<form (submit)=\"onSubmit(form)\" #form=\"ngForm\" class=form-horizontal>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Email:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=text name=email required pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\"\n      [(ngModel)]='user.email' #email='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"email.errors && email.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!email.errors\"></span>\n        <span class=error [hidden]=\"!email.errors.required\">Email required</span>\n        <span class=error [hidden]=\"!email.errors.pattern\">Enter valid format</span>\n      </span>\n      <span *ngIf=\"email.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">First Name:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=text name=first required minlength=3\n      [(ngModel)]='user.first' #first='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"first.errors && first.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!first.errors\"></span>\n        <span class=error [hidden]=\"!first.errors.required\">First name required</span>\n        <span class=error [hidden]=\"!first.errors.minlength\">3 characters minimum</span>\n      </span>\n      <span *ngIf=\"first.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Last Name:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=text name=last required minlength=3\n      [(ngModel)]='user.last' #last='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"last.errors && last.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!last.errors\"></span>\n        <span class=error [hidden]=\"!last.errors.required\">Last name required</span>\n        <span class=error [hidden]=\"!last.errors.minlength\">3 characters minimum</span>\n      </span>\n      <span *ngIf=\"last.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Password:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=password name=_pw required minlength=8\n      [(ngModel)]='user._pw' #_pw='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"_pw.errors && _pw.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!_pw.errors\"></span>\n        <span class=error [hidden]=\"!_pw.errors.required\">Password required</span>\n        <span class=error [hidden]=\"!_pw.errors.minlength\">8 characters minimum</span>\n      </span>\n      <span *ngIf=\"_pw.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Confirmation:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=password name=_pwconf required minlength=8 pattern={{user._pw}}\n      [(ngModel)]='user._pwconf' #_pwconf='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"_pwconf.errors && _pwconf.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!_pwconf.errors\"></span>\n        <span class=error [hidden]=\"!_pwconf.errors.required\">Confirmation required</span>\n        <span class=error [hidden]=\"!_pwconf.errors.pattern\">Must match password</span>\n      </span>\n      <span *ngIf=\"_pwconf.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=\"col-sm-4 text-right\"><label class=\"control-label\">Birthday:</label></div>\n    <div class=col-sm-4>\n      <input class=form-control type=date name=bday required pastDate\n      [(ngModel)]='user.bday' #bday='ngModel'/>\n    </div>\n    <div class=\"col-sm-4 form-control-static\">\n      <span *ngIf=\"bday.errors && bday.dirty\">\n        <span class=\"error glyphicon glyphicon-remove\" [hidden]=\"!bday.errors\"></span>\n        <span class=error [hidden]=\"!bday.errors.required\">Birthday required</span>\n        <span class=error [hidden]=\"!bday.errors.pastDate\">Must be a date in the past</span>\n      </span>\n      <span *ngIf=\"bday.valid\" class=\"glyphicon glyphicon-ok valid\"></span>\n    </div>\n  </div>\n\n  <div class=form-group>\n    <div class=col-sm-4></div>\n    <div class=col-sm-4>\n      <input *ngIf=\"!form.valid\" type=submit value=Register class=\"btn btn-block btn-danger disabled\" [disabled]=\"!form.valid\">\n      <input *ngIf=\"form.valid\" type=submit value=Register class=\"btn btn-block btn-primary\">\n    </div>\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -329,16 +399,23 @@ var RegistrationComponent = (function () {
     }
     RegistrationComponent.prototype.ngOnInit = function () {
         this.user = new __WEBPACK_IMPORTED_MODULE_1__user__["a" /* User */]();
-        this.getEmails();
+        this.emails = this._as.listEmails();
+    };
+    RegistrationComponent.prototype.validateEmail = function () {
+        for (var _i = 0, _a = this.emails; _i < _a.length; _i++) {
+            var address = _a[_i];
+            if (this.user.email === address) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     };
     RegistrationComponent.prototype.onSubmit = function (form) {
         this._as.join(this.user);
         this.user = new __WEBPACK_IMPORTED_MODULE_1__user__["a" /* User */]();
-        this._router.navigate(['users']);
-    };
-    RegistrationComponent.prototype.getEmails = function () {
-        var _this = this;
-        this._as.listEmails().subscribe(function (emails) { return _this.emails = emails; });
+        this._router.navigate(['']); // change to auto login
     };
     RegistrationComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -384,6 +461,75 @@ var User = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/search/search.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/search/search.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<p>\n  <input (keyup)=\"name$.next($event.target.value)\">\n</p>\n\n<ul *ngIf=\"users\">\n  <li *ngFor=\"let user of users\">{{user.first}}</li>\n</ul>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/search/search.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__users_service__ = __webpack_require__("../../../../../src/app/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Rxjs__ = __webpack_require__("../../../../Rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_Rxjs__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SearchComponent = (function () {
+    function SearchComponent(_us) {
+        var _this = this;
+        this._us = _us;
+        this.name$ = new __WEBPACK_IMPORTED_MODULE_2_Rxjs__["Subject"]();
+        this._us.search(this.name$)
+            .subscribe(function (list) { return _this.users = list; });
+    }
+    SearchComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-search',
+            template: __webpack_require__("../../../../../src/app/search/search.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/search/search.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__users_service__["a" /* UsersService */]])
+    ], SearchComponent);
+    return SearchComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/userlist/userlist.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -405,7 +551,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/userlist/userlist.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<h2 class=text-center>Search Users</h2>\n<p>&nbsp;</p>\n\n<div class=row>\n  <div class=col-8>\n\n    <table class=\"table table-striped\">\n        <tr>\n            <td><strong>Name</strong></td>\n            <td><strong>Email</strong></td>\n            <td><strong>Birthday</strong></td>\n            <td><strong>Age</strong></td>\n            <td><strong>Actions</strong></td>\n        </tr>\n        <tr *ngFor=\"let user of users\">\n            <td><strong>{{user.name}}</strong></td>\n            <td>{{user.email}}</td>\n            <td>{{user.bday_short}}</td>\n            <td>{{user.age}}</td>\n            <td>\n                <button class=\"btn btn-sm btn-warning\">Edit</button>\n                <button class=\"btn btn-sm btn-danger\">Delete</button>\n            </td>\n        </tr>\n    </table>\n\n  </div>\n</div>"
+module.exports = "\n<h2 class=text-center>List Users</h2>\n<p>&nbsp;</p>\n\n<div class=row>\n  <div class=col-8>\n\n    <table class=\"table table-striped\">\n        <tr>\n            <td><strong>Name</strong></td>\n            <td><strong>Email</strong></td>\n            <td><strong>Birthday</strong></td>\n            <td><strong>Age</strong></td>\n            <td><strong>Actions</strong></td>\n        </tr>\n        <tr *ngFor=\"let user of users\">\n            <td><strong>{{user.name}}</strong></td>\n            <td>{{user.email}}</td>\n            <td>{{user.bday_short}}</td>\n            <td>{{user.age}}</td>\n            <td>\n                <button class=\"btn btn-sm btn-success\">Show</button>\n                <button class=\"btn btn-sm btn-warning\">Edit</button>\n                <button class=\"btn btn-sm btn-danger\">Delete</button>\n            </td>\n        </tr>\n    </table>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -432,12 +578,9 @@ var UserlistComponent = (function () {
         this._us = _us;
     }
     UserlistComponent.prototype.ngOnInit = function () {
-        this._us.findAll();
-        this.watchUsers();
-    };
-    UserlistComponent.prototype.watchUsers = function () {
         var _this = this;
-        this._us.users.subscribe(function (users) { return _this.users = users; });
+        this._us.list()
+            .subscribe(function (users) { return _this.users = users; });
     };
     UserlistComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -461,8 +604,7 @@ var UserlistComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Rxjs__ = __webpack_require__("../../../../Rxjs/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_Rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__("../../../../rxjs/_esm5/observable/of.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -478,16 +620,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UsersService = (function () {
     function UsersService(_http) {
         this._http = _http;
-        this.users = new __WEBPACK_IMPORTED_MODULE_2_Rxjs__["BehaviorSubject"]([]);
-        this.user = new __WEBPACK_IMPORTED_MODULE_2_Rxjs__["BehaviorSubject"]({});
     }
-    UsersService.prototype.findAll = function () {
-        var _this = this;
-        this._http.get("/api/users").subscribe(function (users) { return _this.users.next(users); });
+    UsersService.prototype.list = function () {
+        return this._http.get("/api/users/list");
     };
-    UsersService.prototype.findById = function (id) {
+    UsersService.prototype.searchTerm = function (term, type) {
         var _this = this;
-        this._http.get("/api/users/" + id).subscribe(function (user) { return _this.user.next(user); });
+        return term
+            .debounceTime(200)
+            .distinctUntilChanged()
+            .switchMap(function (term) { return _this.search(term, type); });
+    };
+    UsersService.prototype.search = function (term, type) {
+        if (term === '') {
+            return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["a" /* of */])([]);
+        }
+        return this._http.get("/api/users/search/" + type + "/" + term);
+    };
+    UsersService.prototype.show = function (id) {
+        this._http.get("/api/users/" + id);
     };
     UsersService.prototype.update = function (user) {
         return this._http.post("/api/users/" + user.id + "/update", user);

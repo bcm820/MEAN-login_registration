@@ -1,0 +1,8 @@
+
+<p>
+  <input (keyup)="name$.next($event.target.value)">
+</p>
+
+<ul *ngIf="users">
+  <li *ngFor="let user of users">{{user.first}}</li>
+</ul>

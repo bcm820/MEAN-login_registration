@@ -7,8 +7,6 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-
-  headers = new Headers({'Content-Type':'application/json'});
   
   constructor(private _http: HttpClient) { }
   

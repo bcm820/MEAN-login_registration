@@ -14,9 +14,9 @@ module.exports = (router) => {
     });
 
     // /api/users
-    router.get('/', users.findAll);
-    router.get('/:id', users.findById);
-    router.put('/:id/update', users.update);
-    router.delete('/:id/delete', users.delete);
+    router.get('/list', users.list);
+    router.get('/show/:id', users.show);
+    router.put('/update/:id', users.update);
+    router.delete('/delete/:id', users.delete);
 
 };

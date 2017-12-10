@@ -1,5 +1,4 @@
 
-// include mongoose and model
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
@@ -40,7 +39,7 @@ module.exports = {
         }
     },
 
-    checkEmails(req, res){
+    listEmails(req, res){
         User.find({}, {email:1, _id:0})
         .then(users => {
             let emails = [];

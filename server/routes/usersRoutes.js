@@ -9,7 +9,6 @@ module.exports = (router) => {
     })
 
     router.param('id', (req, res, next, id) => {
-       console.log(`Search for id: ${id}`);
        req.id = id;
        next();
     });
@@ -17,7 +16,7 @@ module.exports = (router) => {
     // /api/users
     router.get('/', users.findAll);
     router.get('/:id', users.findById);
-    router.post('/:id/update', users.update);
-    router.post('/:id/delete', users.delete);
+    router.put('/:id/update', users.update);
+    router.delete('/:id/delete', users.delete);
 
 };

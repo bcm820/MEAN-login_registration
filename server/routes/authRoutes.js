@@ -8,17 +8,9 @@ module.exports = (router) => {
         next();
     })
 
-    router.param('email', (req, res, next, email) => {
-        console.log(`Search for email: ${email}`);
-        req.email = email;
-        next();
-     });
-
     // /api/auth
-    router.post('/login', auth.login);
     router.post('/join', auth.join);
-
-    // /api/auth/search
-    router.get('/search/e/:email', auth.searchEmail);
+    router.post('/login', auth.login);
+    router.get('/emails', auth.checkEmails)
 
 };

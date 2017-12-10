@@ -26,18 +26,18 @@ const UserSchema = new mongoose.Schema({
         minlength: [3, 'Last name must be 3 characters min.']
     },
 
-    pw: {
+    _pw: {
         type: String,
         required: [true, 'Password required'],
         minlength: [8, 'Password must be 8 characters min.'],
         maxlength: [32, 'Password must be 32 characters max.']
     },
 
-    pwconf: {
+    _pwconf: {
         type: String,
         required: [true, 'Confirmation required'],
         validate: function(pwconf){
-            if(pwconf !== this.pw){
+            if(pwconf !== this._pw){
                 this.invalidate('pwconf', 'Confirmation does not match');
             }
         }
@@ -62,8 +62,12 @@ const UserSchema = new mongoose.Schema({
     //     type: String,
     //     enum: ['Male', 'Female']
     // }
-    
-}, {timestamps: true});
+},
+{
+    timestamps: true,
+    toObject: {virtuals: true},
+    toJSON: {virtuals: true}
+});
 
 // unique plugin
 UserSchema.plugin(uniqueCheck, {message: '{PATH} is not available' });
@@ -102,16 +106,16 @@ UserSchema.virtual('age_full').get(function() {
 // hash password and reset pwconf
 UserSchema.pre('save', function(next){
     const user = this;
-    bcrypt.hash(this.pw, 10, (err, hashedPass) => {
-        user.pw = hashedPass;
-        user.pwconf = undefined
+    bcrypt.hash(this._pw, 10, (err, hashedPass) => {
+        user._pw = hashedPass;
+        user._pwconf = undefined
         next();
     });
 });
 
 // check password prior to login - call as user.checkPW(pw);
 UserSchema.methods.checkPW = function(password, cb){
-    bcrypt.compare(password, this.pw, (err, good) => {
+    bcrypt.compare(password, this._pw, (err, good) => {
         if(err){ return cb(err) }
         else { cb(null, good); }
     });

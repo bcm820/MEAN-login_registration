@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { SearchService } from '../_services/search.service';
+import { SearchService } from '../../services/search.service';
 import { Subject } from 'Rxjs';
 
 @Component({
@@ -11,8 +11,7 @@ import { Subject } from 'Rxjs';
 export class SearchComponent {
 
   users = [];
-  status = false;
-  searched = false;
+  searching = false;
   search = {field:'', term:''}
   params$ = new Subject();
   
@@ -22,13 +21,9 @@ export class SearchComponent {
   }
 
   updateParams(){
-    this.status = true;
-    this.searched = false;
+    this.searching = true;
     this.params$.next(this.search);
-    setTimeout(() => {
-      this.status = false;
-      this.searched = true;
-    }, 1300)
+    setTimeout(() => { this.searching = false; }, 1200);
   }
 
 }

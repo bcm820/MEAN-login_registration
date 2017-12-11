@@ -5,16 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { UserlistComponent } from './userlist/userlist.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { UserlistComponent } from './components/userlist/userlist.component';
+import { SearchComponent } from './components/search/search.component';
+import { LoginComponent } from './components/login/login.component';
 
-import { UsersService } from './_services/users.service';
-import { AuthService } from './_services/auth.service';
-import { SearchService } from './_services/search.service';
+import { UsersService } from './services/users.service';
+import { AuthService } from './services/auth.service';
+import { SearchService } from './services/search.service';
 
-import { DateValidator } from './registration/dateValidator';
-import { SearchComponent } from './search/search.component';
-import { LoginComponent } from './login/login.component';
+import { DateValidator } from './validators/date.validator';
+import { ShowComponent } from './components/show/show.component';
+import { UpdateComponent } from './components/update/update.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { LoginComponent } from './login/login.component';
     UserlistComponent,
     SearchComponent,
     LoginComponent,
-    DateValidator
+    DateValidator,
+    ShowComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@ module.exports = (router) => {
     // /api/users
     router.get('/list', users.list);
     router.get('/show/:id', users.show);
-    router.put('/update/:id', users.update);
-    router.delete('/delete/:id', users.delete);
+    router.post('/update/:id', users.update);
+    router.post('/delete/:id', users.delete);
 
 };

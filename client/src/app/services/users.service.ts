@@ -15,15 +15,15 @@ export class UsersService {
   }
 
   show(id) {
-    this._http.get(`/api/users/${id}`)
+    return this._http.get(`/api/users/show/${id}`)
   }
 
-  update(user) { // maybe add subscribe
-    return this._http.post(`/api/users/${user.id}/update`, user);
+  update(user) {
+    return this._http.post(`/api/users/update/${user._id}`, user);
   }
 
   delete(id) {
-    return this._http.delete(`/api/users/${id}/delete`);
+    return this._http.delete(`/api/users/delete/${id}`);
   }
 
 }

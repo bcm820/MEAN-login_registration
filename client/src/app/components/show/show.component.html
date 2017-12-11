@@ -1,0 +1,35 @@
+
+<h2 class=text-center>{{user.name}}</h2>
+<hr>
+
+<div class=row>
+  <div class=col-sm-3></div>
+  <div class=col-sm-6>
+    <table class="table table-striped">
+      <tr>
+        <td><strong>First Name</strong></td>
+        <td>{{user.first}}</td>
+      </tr>
+      <tr>
+        <td><strong>Last Name</strong></td>
+        <td>{{user.last}}</td>
+      </tr>
+      <tr>
+        <td><strong>Email</strong></td>
+        <td>{{user.email}}</td>
+      </tr>
+      <tr>
+        <td><strong>Birthday</strong></td>
+        <td>{{user.bday_full}}</td>
+      </tr>
+      <tr>
+        <td><strong>Age</strong></td>
+        <td>{{user.age_full}}</td>
+      </tr>
+    </table>
+    <div class=text-center>
+      <button (click)=back() class="btn btn-sm btn-success">Go Back</button>
+    </div>
+  </div>
+  <div class=col-sm-3></div>
+</div>

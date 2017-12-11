@@ -72,9 +72,9 @@ const UserSchema = new mongoose.Schema({
 // unique plugin
 UserSchema.plugin(uniqueCheck, {message: 'Duplicate email found' });
 
-// virtual full birthday format
+// virtual short birthday format
 UserSchema.virtual('bday_short').get(function(){
-    return moment(this.bday).format('MM/DD/YY');
+    return moment(this.bday).format('YYYY-MM-DD');
 });
 
 // virtual full birthday format

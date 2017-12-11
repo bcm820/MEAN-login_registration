@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from './user';
 import { Subject } from 'Rxjs';
-import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
+
+import { User } from '../../models/user.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -34,19 +35,18 @@ export class RegistrationComponent {
     this.flashes = false;
   }
   
-  onSubmit(form){
+  register(){
     this._as.join(this.user)
-      .subscribe(
-      res => {
-        if(Array.isArray(res)){
-          this.flashes = res;
-        } else {
-          console.log(`${this.user.first} joined`);
-          this.flashes = false;
-          this._router.navigate(['']);
-          this.user = new User();
-        }
-      });
+    .subscribe(
+    res => {
+      if(Array.isArray(res)){
+        this.flashes = res;
+      } else {
+        this.flashes = false;
+        this._router.navigate(['']);
+        this.user = new User();
+      }
+    });
   }
 
 }
